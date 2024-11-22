@@ -1,2 +1,2 @@
-# lucash
-Repositório do meu perfil interativo com JavaScript
+# meuperfil
+Repositório do meu perfil intervalo com JavaScript
