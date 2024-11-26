@@ -33,64 +33,69 @@
     </div>
 </div>
 <script>
-    function alterarNome(){
-        const novoNome = prompt("Digite o novo nome:");
-        if (novoNome){
-            document.getElementById("profileName").textContent="Nome: " + novoNome;
+    //Função que abre um prompt, usado para alterar o nome 
+    function alterarNome() {
+            const nome = prompt("Digite o novo nome:"); //Declara uma variável que guarda o resultado digitado no prompt
+            if (nome) {
+                document.getElementById("profileName").textContent = "Nome: " + nome; //Exibe o nome digitado
+            }
         }
-    }
 
-    function adicionarHobby(){
-          const novoHobby = prompt("Digite um novo hobby:");
-        if (novoHobby) {
-            const li= document.createElement("li");
-            li.textContent = novoHobby;
-            li.className = "list-group-item";
-            document.getElementById("hobbiesList").appendChild(li);
-            
+     //Função que adiciona um hobby na lista de hobbies
+     function adicionarHobby() {
+            const hobby = prompt("Digite um novo hobby:"); //Declara uma variável que guarda o resultado digitado
+            if (hobby) {
+                const li = document.createElement("li"); //Declara uma variável que cria um elemento li
+                li.textContent = hobby; //Guarda a variável hobby no conteúdo da variável li
+                li.className = "list-group-item"; //Denomina uma classe para o elemento li
+                li.onclick = function() { removerHobby(li); }; //Aciona a função removerHobby ao clicar no elemento li
+                document.getElementById("hobbiesList").appendChild(li); //Transforma o elemento li em filho do elemento hobbiesList
+            }
         }
-    }
-    function mudarCorDeFundo(){
-        const cores=["#f8d7da", "#decf1", "d4edda", "#fff3cd", "#cce5ff"];
-        const corAleatoria = cores[Math.floor(Math.random()*cores.length)];
-        document.getElementById("profileCard").style.backgroundColor=corAleatoria;
-    }
+         //Função que remove um hobby
+         function removerHobby(element) {
+            element.style.display = "none"; // Faz o hobby desaparecer ao clicar
+        }
+
+    //Função que muda a cor de fundo do site
+        function mudarCorDeFundo() {
+            const cores = ["#8d7da", "#d1ecf2", "#dff0d8", "#fff3cd", "#cce5ff"]; //Array que guarda cores 
+            const corAleatoria = cores[Math.floor(Math.random() * cores.length)]; //Variável que sorteia uma cor 
+            document.body.style.backgroundColor = corAleatoria; //Transforma a cor sorteada na cor de fundo do site
+        }
+
 
     function trocarImagem() {
-    const novoLink = prompt("Digite o link da nova imagem:");
+    const novoLink = prompt("Digite o link da nova imagem:"); //Declara uma variável que guarda o resultado digitado no prompt
     if (novoLink) {
-        document.getElementById("profileImage").src = novoLink;
+        document.getElementById("profileImage").src = novoLink; //Substitui o src da "profileImage" pelo conteúdo da variavel "novoLink"
         }
     }
-    function trocarIdade() {
-                const novaIdade = prompt("Digite a nova idade:");
-                if (novaIdade && !isNaN(novaIdade) && novaIdade > 0) {
-                    document.getElementById("profileAge").textContent = "Idade: " + novaIdade;
-                } else {
-                    alert("Digite uma idade válida.");
-                }
+
+     //Função que muda a idade 
+     function mudarIdade(){
+            const idade = prompt("Digite uma nova idade: ") //Declara uma variável que guarda o resultado do prompt
+            if (idade){
+                document.getElementById("profileAge").textContent = "Idade: " + idade; //Altera o conteúdo do profileAge 
             }
-        document.querySelectorAll("#hobbiesList .list-group-item").forEach(function(item) {
-                 item.addEventListener("click", function() {
-                   item.remove();
-                });
-            });
+        }
+        //Função que reseta a página
              function resetarPagina() {
         
-                document.getElementById("profileName").textContent = "Nome: Meu perfil";
+                document.getElementById("profileName").textContent = "Nome: Meu perfil"; //Altera o conteúdo de "profileName" para o padrão
                 
-                document.getElementById("profileAge").textContent = "Idade: 18";
+                document.getElementById("profileAge").textContent = "Idade: 18"; //Altera o conteúdo de "profileAge" para o padrão
              
-                document.getElementById("profileImage").src = "https://via.placeholder.com/150";
-                
-                const listaHobbies = document.getElementById("hobbiesList");
+                document.getElementById("profileImage").src = "https://via.placeholder.com/150"; //Altera o conteúdo de "profileImage" para o padrão
+                 
+                const listaHobbies = document.getElementById("hobbiesList"); //Variável guarda o elemento com id hobbiesList
                 listaHobbies.innerHTML = `
                     <li class="list-group-item">Leitura</li>
                     <li class="list-group-item">Esportes</li>
                     <li class="list-group-item">Música</li>
-                `;
+                `; //Altera as listas para o padrão
     
-                document.getElementById("profileCard").style.backgroundColor = "";
+                document.getElementById("profileCard").style.backgroundColor = ""; //Altera a cor de fundo para padrão
             }
 
 
