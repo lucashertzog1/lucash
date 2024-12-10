@@ -1,2 +1,2 @@
 # meuperfil
-Repositório do meu perfil intervalo com JavaScript
+Repositório do meu perfil interativo com JavaScript
